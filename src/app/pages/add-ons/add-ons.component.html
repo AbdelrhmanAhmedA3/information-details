@@ -1,0 +1,76 @@
+<section class="lg:w-3/4">
+  <article class="mb-4">
+    <app-heading [title]="title" [subTitle]="subTitle"></app-heading>
+  </article>
+  <form  [formGroup]="infoDetails.perantForm" (ngSubmit)="nextPage()">
+    <section class="lg:flex lg:flex-wrap gap-x-4  gap-y-4 transition ease-in-out duration-150">
+    <fieldset class="w-full">
+      <div>
+        <label [ngClass]="{'border-blue-900 bg-slate-200 shadow-md': checkedOne}" class="label " for="arcade">
+          <input formControlName="arcade" class="" (click)="onChange($event)" type="checkbox"  id="arcade" #arcade value="Arcade">
+          <article class="w-full">
+            <div class="w-full">
+              <figcaption class="grid">
+                <span class="text-blue-900 font-black text-lg">Arcade</span>
+                @if (this.infoDetails.perantForm.controls['togglePlan'].value  === false) {
+                <span class="text-gray-400">$9/mo</span>
+                } @else{
+                <span class="text-gray-400">$90/yr</span>
+                <span class="text-gray-400 text-blue-900">2 months free</span>
+                }
+              </figcaption>
+            </div>
+          </article>
+        </label>
+      </div>
+  </fieldset>
+  <fieldset class="my-2  w-full">
+    <div>
+      <label [ngClass]="{'border-blue-900 bg-slate-200 shadow-md': checkedTwo}" class="label " for="advanced">
+        <input formControlName="advanced" class=" " (click)="onChange($event)" type="checkbox" id="advanced"  #Advanced value="Advanced">
+
+        <article class="w-full">
+          <div class="w-full">
+            <figcaption class="grid">
+              <span class="text-blue-900 font-black text-lg">Advanced</span>
+              @if (this.infoDetails.perantForm.controls['togglePlan'].value  === false) {
+              <span class="text-gray-400">$12/mo</span>
+              } @else{
+              <span class="text-gray-400">$120/yr</span>
+              <span class="text-gray-400 text-blue-900">2 months free</span>
+              }
+            </figcaption>
+          </div>
+        </article>
+      </label>
+    </div>
+</fieldset>
+<fieldset class="w-full">
+  <div>
+    <label [ngClass]="{'border-blue-900 bg-slate-200 shadow-md':checkedTree}" class="label " for="pro">
+      <input formControlName="pro" class="" (click)="onChange($event)" type="checkbox"  id="pro" name="Pro" #Pro value="Pro">
+
+      <article class="w-full">
+        <div class="w-full">
+          <figcaption class="grid">
+            <span class="text-blue-900 font-black text-lg">Pro</span>
+            @if (this.infoDetails.perantForm.controls['togglePlan'].value  === false) {
+            <span class="text-gray-400">$15/mo</span>
+            } @else{
+            <span class="text-gray-400">$150/yr</span>
+            <span class="text-gray-400 text-blue-900">2 months free</span>
+            }
+          </figcaption>
+        </div>
+      </article>
+    </label>
+  </div>
+</fieldset>
+</section>
+
+  <div class="flex justify-between mt-4">
+    <button (click)="prevPage()" type="button"  mat-flat-button class="!text-blue-900 !font-black">GO BACK</button>
+    <button  [disabled]="infoDetails.perantForm.invalid" type="submit" mat-flat-button color="primary" class=" !font-black">NEXT STEP</button>
+  </div>
+  </form>
+</section>

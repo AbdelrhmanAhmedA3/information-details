@@ -1,0 +1,94 @@
+<section class="xxl:w-3/4">
+  <article class="mb-4">
+    <app-heading [title]="title" [subTitle]="subTitle"></app-heading>
+  </article>
+  <form  [formGroup]="infoDetails.perantForm" (ngSubmit)="nextPage()">
+    <section class="lg:flex lg:flex-wrap gap-x-4  gap-y-4 transition ease-in-out duration-150">
+    <fieldset>
+      <div>
+        <input formControlName="plan" class="hidden" type="radio" id="arcade" #arcade value="Arcade">
+        <label [ngClass]="{'border-blue-900 bg-slate-200 shadow-md':arcade.checked}" class="label " for="arcade">
+          <figure class="flex items-center ">
+            <svg-icon src="../../../assets/images/icon-arcade.svg" ></svg-icon>
+          </figure>
+          <article class="w-full">
+            <div class="w-full">
+              <figcaption class="grid">
+                <span class="text-blue-900 font-black text-lg">Arcade</span>
+                @if (this.infoDetails.perantForm.controls['togglePlan'].value  === false) {
+                <span class="text-gray-400">$9/mo</span>
+                } @else{
+                <span class="text-gray-400">$90/yr</span>
+                <span class="text-gray-400 text-blue-900">2 months free</span>
+                }
+              </figcaption>
+            </div>
+          </article>
+        </label>
+      </div>
+  </fieldset>
+  <fieldset class="my-4 lg:my-0">
+    <div>
+      <input formControlName="plan" class="hidden " type="radio" id="advanced" #Advanced value="Advanced">
+      <label [ngClass]="{'border-blue-900 bg-slate-200 shadow-md':Advanced.checked}" class="label " for="advanced">
+        <figure class="flex items-center ">
+          <svg-icon src="../../../assets/images/icon-advanced.svg" ></svg-icon>
+        </figure>
+        <article class="w-full">
+          <div class="w-full">
+            <figcaption class="grid">
+              <span class="text-blue-900 font-black text-lg">Advanced</span>
+              @if (this.infoDetails.perantForm.controls['togglePlan'].value  === false) {
+              <span class="text-gray-400">$12/mo</span>
+              } @else{
+              <span class="text-gray-400">$120/yr</span>
+              <span class="text-gray-400 text-blue-900">2 months free</span>
+              }
+            </figcaption>
+          </div>
+        </article>
+      </label>
+    </div>
+</fieldset>
+<fieldset>
+  <div>
+    <input formControlName="plan" class="hidden" type="radio" id="Pro" #Pro value="Pro">
+    <label [ngClass]="{'border-blue-900 bg-slate-200 shadow-md':Pro.checked}" class="label " for="Pro">
+      <figure class="flex items-center ">
+        <svg-icon src="../../../assets/images/icon-pro.svg" ></svg-icon>
+      </figure>
+      <article class="w-full">
+        <div class="w-full">
+          <figcaption class="grid">
+            <span class="text-blue-900 font-black text-lg">Pro</span>
+            @if (this.infoDetails.perantForm.controls['togglePlan'].value  === false) {
+            <span class="text-gray-400">$15/mo</span>
+            } @else{
+            <span class="text-gray-400">$150/yr</span>
+            <span class="text-gray-400 text-blue-900">2 months free</span>
+            }
+          </figcaption>
+        </div>
+      </article>
+    </label>
+  </div>
+</fieldset>
+</section>
+
+  <article class="my-4">
+    <div class="bg-[#f8f9fe] p-6 text-center rounded shadow-md">
+      <strong class="text-Main ">Monthly</strong>
+      <mat-slide-toggle formControlName="togglePlan" color="primary" class="mx-6"></mat-slide-toggle>
+      <strong class="text-gray-400  ">yearly</strong>
+    </div>
+  </article>
+  <div class="flex justify-between">
+    <button (click)="prevPage()"  mat-flat-button class="!text-blue-900 !font-black">GO BACK</button>
+    <!-- falidation plan -->
+    <!-- @if (infoDetails.perantForm.get('plan')?.getError('required')) {
+      <mat-error>plan is <strong>required</strong></mat-error>
+    } -->
+    <button  [disabled]="infoDetails.perantForm.invalid" type="submit" mat-flat-button color="primary" class=" !font-black">NEXT STEP</button>
+  </div>
+  </form>
+</section>

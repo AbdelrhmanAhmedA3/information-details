@@ -1,0 +1,48 @@
+<section class="lg:w-3/4">
+  <article class="mb-4">
+    <app-heading></app-heading>
+  </article>
+  <form [formGroup]="infoDetails.perantForm" (ngSubmit)="nextPage()">
+    <fieldset>
+      <mat-form-field class="w-full">
+        <mat-label>userName</mat-label>
+        <input  matInput placeholder="Abdelrahman Ahmed Fathi" type="text"  formControlName="name">
+        @if (infoDetails.perantForm.get('name')?.getError('required')) {
+          <mat-error>name is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+
+    </fieldset>
+    <fieldset>
+        <mat-form-field class="w-full">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            @if (infoDetails.perantForm.get('email')?.getError('required')) {
+              <mat-error>Email is <strong>required</strong></mat-error>
+            }
+            @if(infoDetails.perantForm.get('email')?.getError('pattern')){
+              <mat-error>Please enter a valid email address</mat-error>
+            }
+          <!-- @if(personal.get('email')?.errors && personal.get('email')?.touched){
+          } -->
+
+        </mat-form-field>
+      </fieldset>
+    <fieldset>
+    <mat-form-field class="w-full">
+      <mat-label>Telephone</mat-label>
+      <span matTextPrefix>+20 &nbsp;</span>
+      <input formControlName="phone" matInput formControlName="phone"  placeholder="1124256559">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+      @if (infoDetails.perantForm.get('phone')?.getError('required')) {
+     <mat-error>phone is <strong>required</strong></mat-error>
+    }
+     </mat-form-field>
+    </fieldset>
+
+    <div class="text-end">
+      <button [disabled]="infoDetails.perantForm.invalid"  type="submit" mat-flat-button color="primary">NEXT STEP</button>
+
+    </div>
+  </form>
+</section>

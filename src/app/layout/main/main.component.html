@@ -1,0 +1,42 @@
+<section class="md:flex grow bg-white md:h-svh md:p-4 relative md:gap-8">
+  <article
+    class="bg-destop"
+  >
+  <div>
+  </div>
+    <ul class="flex flex-wrap md:flex-col gap-x-4 gap-y-2 justify-center">
+      @for(link of links; track $index ) {
+      <li class="flex gap-4 align-items-center p-2">
+        <article>
+          <div>
+            <a
+              routerLinkActive="activeLink"
+              [routerLink]="infoDetails.perantForm.invalid? '' : link.routerLink"
+              class="w-9 h-9 border-white border-2 rounded-full flex justify-center
+                    items-center font-black text-white"
+            >
+              {{ $index + 1 }}
+            </a>
+          </div>
+        </article>
+        <article class="md:flex-grow">
+          <div class="text-white hidden md:grid">
+            <small class="text-[#ffffff3a] hidden md:block"
+              >STEP {{ $index + 1 }}</small
+            >
+            <a
+              class="router-link"
+              [routerLink]="infoDetails.perantForm.invalid? '' : link.routerLink"
+              >{{ link.title }}</a
+            >
+          </div>
+        </article>
+      </li>
+      }
+    </ul>
+  </article>
+  <section class="main-route">
+    <router-outlet></router-outlet>
+  </section>
+  <div class="w-full h-[500px] md:hidden"></div>
+</section>

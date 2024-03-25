@@ -1,0 +1,37 @@
+<section class="lg:w-3/4">
+  <article class="mb-4">
+    <app-heading [subTitle]="subTitle" [title]="title"></app-heading>
+  </article>
+  <article class=" flex justify-between items-center bg-slate-200 p-2 rounded-t-lg">
+    <div class="grid ">
+      <span class="text-blue-900 font-bold">
+        {{infoDetails.perantForm.controls['plan'].value}}
+        {{infoDetails.perantForm.controls['togglePlan'].value ? '(Yearly)': '(Monthly)'}}
+      </span>
+      <a class="text-gray-400 underline decoration-1 " routerLink="/home/personal">change</a>
+    </div>
+    <div>
+      <span class="text-blue-900 font-bold">
+
+        {{infoDetails.perantForm.controls['togglePlan'].value ? '$9/yr': '$9/mo'}}
+      </span>
+    </div>
+  </article>
+  <hr>
+  <article class="border-t border-gray-300 flex justify-between items-center bg-slate-200 p-2 ">
+    <span>Online service</span>
+    <span>
+      {{infoDetails.perantForm.controls['togglePlan'].value ? '+$1/yr ':'$1/mo'}}
+
+    </span>
+  </article>
+  <article class=" flex justify-between items-center bg-slate-200 p-2 rounded-b-lg ">
+    <span>Online service</span>{{infoDetails.perantForm.controls['togglePlan'].value ? '+$1/yr ':'$1/mo'}}
+  </article>
+  <article class=" p-3 pb-0 flex justify-between items-center ">
+    <span class="text-black-50 ">Total (per month)</span><strong class="font-bolder text-blue-900 text-lg"> +$12/mo</strong>
+  </article>
+  <div class="text-end mt-4">
+    <button (click)="nextPage()" color="primary"  mat-flat-button class="!font-black ">Confirm</button>
+  </div>
+</section>

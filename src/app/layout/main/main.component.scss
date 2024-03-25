@@ -1,0 +1,43 @@
+.bg-destop {
+  @apply md:w-2/6 md:rounded-2xl h-64 md:h-full p-8 transition ease-in-out delay-150 duration-300;
+  .activeLink {
+    background-color: #bcdff9;
+  }
+  .links {
+    @apply w-9 h-9 border-white border-2 rounded-full flex justify-center
+    items-center font-black text-white cursor-pointer;
+  }
+  .router-link {
+    @apply font-black transition ease-in-out delay-150 duration-300 hidden md:block opacity-0 md:opacity-100;
+  }
+}
+
+.drop-shadow-external {
+  box-shadow: 0px 0px 5px rgb(124, 124, 124);
+}
+.main-route {
+  @apply absolute top-48  bg-[#ffffffe1] inherit  left-2/4 translate-x-negative
+  md:translate-x-0 md:w-4/6 transition ease-in-out delay-150 duration-300 w-11/12
+  px-5 py-7 rounded-xl z-10 drop-shadow-external;
+}
+
+@media all and (min-width: 767.9px) {
+  .inherit {
+    position: unset;
+  }
+  .bg-destop {
+    background: url("../../../assets/images/bg-sidebar-desktop.svg") no-repeat;
+    background-size: cover;
+    max-width: 300px;
+  }
+  .drop-shadow-external {
+    box-shadow: none;
+  }
+}
+
+@media all and (max-width: 767.8px) {
+  .bg-destop {
+    background: url("../../../assets/images/bg-sidebar-mobile.svg") no-repeat;
+    background-size: cover;
+  }
+}

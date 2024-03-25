@@ -1,1 +1,17 @@
+// @use './style/index' as *;
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Ubuntu;
+  src: url(assets/fonts/Ubuntu/Ubuntu-Medium.ttf) format("Ubuntu-Medium"),
+       url(assets/fonts/Ubuntu/Ubuntu-Bold.ttf) format("Ubuntu-bold"),
+       url(assets/fonts/Ubuntu/Ubuntu-Regular.ttf) format("Regular-bold"),
+}
+*{
+  font-family: Ubuntu;
+}
+html, body { height: 100%; }
+body { margin: 0; }

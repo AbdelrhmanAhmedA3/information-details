@@ -1,0 +1,4 @@
+.label {
+  @apply hover:border-blue-900 hover:bg-slate-200 border  transition ease-in-out duration-150 px-4
+  flex gap-x-8 py-2   content-around   bg-slate-100 rounded-xl  w-full;
+}
