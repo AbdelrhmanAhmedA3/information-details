@@ -15,7 +15,7 @@ export class InformationDetailsService {
 
 
 
-    plan: new FormControl('',[Validators.required]),
+    plan: new FormControl('',),
     togglePlan: new FormControl(false),
 
 
